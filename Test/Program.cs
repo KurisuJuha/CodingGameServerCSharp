@@ -10,5 +10,8 @@ Console.ReadLine();
 
 void Tick()
 {
-    Console.WriteLine(Encoding.UTF8.GetString(codingGameServer.data));
+    foreach (var item in codingGameServer.sharedata.Keys)
+    {
+        Console.WriteLine(codingGameServer.sharedata[item].Name);
+    }
 }

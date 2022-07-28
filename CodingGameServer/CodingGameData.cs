@@ -6,17 +6,22 @@ using System;
 namespace CodingGameBase;
 
 
-public abstract class CodingGameData
+public class CodingGameData
 {
-    public string Name { get; private set; }
+    public string Name;
     public byte[] data;
 
-    public byte[] ToBytes()
+    public DataWriter ToDataWriter()
     {
         DataWriter writer = new DataWriter();
         writer.Put(Name);
         writer.Put(data);
+        return writer;
+    }
 
-        return writer.GetData();
+    public void Decode(DataReader reader)
+    {
+        Name = reader.GetString();
+        data = reader.GetBytes();
     }
 }

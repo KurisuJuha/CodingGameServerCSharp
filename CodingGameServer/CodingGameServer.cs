@@ -9,7 +9,7 @@ namespace CodingGameBase
     public class CodingGameServer
     {
         public int port { get; private set; }
-        public Dictionary<string, byte[]> sharedata;
+        public Dictionary<string, CodingGameData> sharedata;
         public byte[] data;
         public Action Tick;
 
@@ -18,13 +18,13 @@ namespace CodingGameBase
         public CodingGameServer()
         {
             this.port = 59108;
-            sharedata = new Dictionary<string, byte[]>();
+            sharedata = new Dictionary<string, CodingGameData>();
         }
 
         public CodingGameServer(int port)
         {
             this.port = port;
-            sharedata = new Dictionary<string, byte[]>();
+            sharedata = new Dictionary<string, CodingGameData>();
         }
 
         public void StartServer()
@@ -54,11 +54,22 @@ namespace CodingGameBase
                         byte[] text = Encoding.UTF8.GetBytes("hogehogefoo");
                         data = GetByteArrayFromStream(request.InputStream);
 
-                        DecodeData();
+                        DecodeData(data);
 
                         if (Tick != null) Tick();
 
-                        response.OutputStream.Write(text, 0, text.Length);
+                        DataWriter writer = new DataWriter();
+                        //長さを追加
+                        writer.Put(sharedata.Count);
+                        foreach (var item in sharedata.Keys)
+                        {
+                            //string（パラメーターネーム）を追加
+                            writer.Put(item);
+                            //bytesを追加
+                            writer.Put(sharedata[item].ToDataWriter());
+                        }
+
+                        response.OutputStream.Write(writer.GetData(), 0, writer.GetData().Length);
                     }
                     else
                     {
@@ -73,9 +84,28 @@ namespace CodingGameBase
             }
         }
 
-        public void DecodeData()
+        public void DecodeData(byte[] data)
         {
+            DataReader reader = new DataReader(data);
+            //長さを取得
+            int length = reader.GetInt();
+            for (int i = 0; i < length; i++)
+            {
+                //パラメーターネームを取得
+                string param = reader.GetString();
+                //値が存在するなら
+                if (sharedata.TryGetValue(param,out CodingGameData? value))
+                {
+                    value.Decode(reader);
+                }
+                else
+                {
+                    value = new CodingGameData();
+                    value.Decode(reader);
 
+                    sharedata.Add(param, value);
+                }
+            }
         }
 
         private static byte[] GetByteArrayFromStream(Stream sm)
