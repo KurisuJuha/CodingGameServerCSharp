@@ -53,7 +53,9 @@ namespace CodingGameBase
                     {
                         byte[] text = Encoding.UTF8.GetBytes("hogehogefoo");
                         data = GetByteArrayFromStream(request.InputStream);
-                        
+
+                        DecodeData();
+
                         if (Tick != null) Tick();
 
                         response.OutputStream.Write(text, 0, text.Length);
@@ -70,6 +72,12 @@ namespace CodingGameBase
                 Console.WriteLine(e.Message);
             }
         }
+
+        public void DecodeData()
+        {
+
+        }
+
         private static byte[] GetByteArrayFromStream(Stream sm)
         {
             using (MemoryStream ms = new MemoryStream())
