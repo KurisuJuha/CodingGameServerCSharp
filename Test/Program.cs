@@ -12,6 +12,6 @@ void Tick()
 {
     foreach (var item in codingGameServer.sharedata.Keys)
     {
-        Console.WriteLine(codingGameServer.sharedata[item].Name);
+        Console.WriteLine(codingGameServer.sharedata[item].data.ToString());
     }
 }
