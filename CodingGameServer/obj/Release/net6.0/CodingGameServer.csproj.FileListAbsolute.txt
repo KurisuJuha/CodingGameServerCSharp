@@ -1,0 +1,12 @@
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\bin\Release\net6.0\CodingGameServer.deps.json
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\bin\Release\net6.0\CodingGameServer.dll
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\bin\Release\net6.0\CodingGameServer.pdb
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\obj\Release\net6.0\CodingGameServer.csproj.AssemblyReference.cache
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\obj\Release\net6.0\CodingGameServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\obj\Release\net6.0\CodingGameServer.AssemblyInfoInputs.cache
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\obj\Release\net6.0\CodingGameServer.AssemblyInfo.cs
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\obj\Release\net6.0\CodingGameServer.csproj.CoreCompileInputs.cache
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\obj\Release\net6.0\CodingGameServer.dll
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\obj\Release\net6.0\refint\CodingGameServer.dll
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\obj\Release\net6.0\CodingGameServer.pdb
+C:\Users\KurisuJuha\Documents\GitHub\CodingGameServer\CodingGameServer\obj\Release\net6.0\ref\CodingGameServer.dll

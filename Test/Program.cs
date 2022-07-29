@@ -1,17 +1,14 @@
 ﻿using System.Text;
 using CodingGameBase;
 
-CodingGameServer codingGameServer = new CodingGameServer();
-
-codingGameServer.Tick = Tick;
-
-codingGameServer.StartServer();
-Console.ReadLine();
-
-void Tick()
+namespace Test
 {
-    foreach (var item in codingGameServer.sharedata.Keys)
+    public class Test : TestWrapper
     {
-        Console.WriteLine(codingGameServer.sharedata[item].data.ToString());
+        public override void Tick()
+        {
+            Console.WriteLine("test");
+            value = value + 1;
+        }
     }
 }
